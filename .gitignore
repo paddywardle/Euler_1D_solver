@@ -2,6 +2,7 @@
 *.cpp~
 *.o~
 *.*~
+*~
 
 # Prerequisites
 *.d
