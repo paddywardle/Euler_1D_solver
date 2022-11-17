@@ -3,6 +3,7 @@
 *.o~
 *.*~
 *~
+data/
 
 # Prerequisites
 *.d
