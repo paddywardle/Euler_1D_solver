@@ -1,3 +1,8 @@
+# back-up files
+*.cpp~
+*.o~
+*.*~
+
 # Prerequisites
 *.d
 
