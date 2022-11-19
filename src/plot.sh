@@ -1,8 +1,8 @@
 #!/bin/bash
 
-file="../data/test_LF.dat"
+file="../data/results.dat"
 
-for i in {2..5}
+for i in {2..4}
 do
 	echo "plot '$file' using 1:$i with linespoints" | gnuplot -persist
 done	

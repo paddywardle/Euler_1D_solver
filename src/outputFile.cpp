@@ -1,21 +1,23 @@
-#include <string>
-#include <vector>
-#include <fstream>
 #include "header.H"
+#include <vector>
 #include <array>
+#include <cmath>
+#include <algorithm>
+#include <fstream>
+#include <iostream>
 
-void outputFile(std::string outputName, std::vector<std::array<double, 3>>& u, double x0, double dx)
+void Euler1D::outputFile(std::string outputName)
 {
   std::ofstream output(outputName);
-  
-  for (int i=1; i<u.size(); i++)
+
+  for (int i=1; i<u_prim.size(); i++)
     {
       double x = x0 + (i-1) * dx;
       output<<x<<" ";
-      for (int j=0; j<u[i].size(); j++)
+      for (int j=0; j<u_prim[i].size(); j++)
 	{
-	  output<<u[i][j]<<" ";
+	  output<<u_prim[i][j]<<" ";
 	}
       output<<std::endl;
-    } 
+    }
 }

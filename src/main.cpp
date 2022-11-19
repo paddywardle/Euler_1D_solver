@@ -10,24 +10,11 @@ int main()
   double tStop = 0.25;
   double gamma = 1.4;
   double C = 0.8;
-  int nCells = 1000;
-  double dx = (x1 - x0)/nCells;
-  
+  int nCells = 10000;
 
-  std::vector<std::array<double, 3>> u;
-  u.resize(nCells+2);
-  std::vector<std::array<double, 3>> uPlus1;
-  uPlus1.resize(nCells+2);
+  Euler1D E(nCells, tStart, tStop, x0, x1, gamma, C);
 
-  initial_conditions(u, x0, dx);
-  initial_conditions(uPlus1, x0, dx);
+  E.run();
 
-  u = prim_to_cons(u, gamma, nCells);
-  uPlus1 = prim_to_cons(uPlus1, gamma, nCells);
-
-  solvers(u, uPlus1, tStart, tStop, dx, nCells, C, gamma);
-
-  u = cons_to_prim(u, gamma, nCells);
-
-  outputFile("../data/test_LF.dat", u, x0, dx);
+  E.outputFile("../data/results.dat");
 }
