@@ -12,6 +12,8 @@ int main()
   double C = 0.8;
   int nCells = 10000;
 
+  std::cin>>x0>>x1>>tStart>>tStop>>gamma>>C>>nCells;
+
   Euler1D E(nCells, tStart, tStop, x0, x1, gamma, C);
 
   E.run();
