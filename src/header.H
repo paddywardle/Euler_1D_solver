@@ -12,7 +12,9 @@ public:
   void run();
 
 private:
-
+  
+  // member data
+  
   double tStart;
   double tStop;
   double x0;
@@ -28,7 +30,17 @@ private:
 
   std::vector<std::array<double, 3>> u_prim;
 
+  // private member functions
+
   void resize_matrix();
+
+  void initial_conds();
+
+  std::vector<std::array<double, 3>> prim_to_con(std::vector<std::array<double, 3>>);
+
+  std::vector<std::array<double, 3>> con_to_prim(std::vector<std::array<double, 3>>);
+
+  double calculate_timestep();
   
   double flux_fn_rho(double, double);
 
@@ -38,14 +50,10 @@ private:
 
   double lax_friedrich_flux(std::array<double, 3>, std::array<double, 3>, std::array<double, 3>, std::array<double, 3>, int, double);
 
+  double richtmyer_flux(std::array<double, 3>, std::array<double, 3>, std::array<double, 3>, std::array<double, 3>, int, double);
+
+  double FORCE_flux(std::array<double, 3>, std::array<double, 3>, std::array<double, 3>, std::array<double, 3>, int, double);
+
   void solvers();
-
-  void initial_conds();
-
-  std::vector<std::array<double, 3>> prim_to_con(std::vector<std::array<double, 3>>);
-
-  std::vector<std::array<double, 3>> con_to_prim(std::vector<std::array<double, 3>>);
-
-  double calculate_timestep();
     
 };
